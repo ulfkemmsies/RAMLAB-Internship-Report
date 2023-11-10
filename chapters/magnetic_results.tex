@@ -1,0 +1,23 @@
+\section{Magnetic Results}
+
+In order to investigate the effects that welding have on the magnetic performance of the material, samples at differing degrees of processing were taken and tested. An unaltered Vacoflux 17 wire was tested, as were a welded sample and two annealed ones.
+
+The magnetic characterization of the samples consisted of a VSM test performed at the TU Delft 3ME laboratory. From the successful ring printed as shown in \autoref{fig:ring_2}, a cross-sectional sample was taken. From the uppermost layer of this cross-section, a 2x2x2 mm sample was cut, since this was the maximum sample volume for the VSM. The rest of the cross-section was split and used for annealing.
+
+The recommended annealing is specified by the manufacturer in Vacoflux 17's data sheet as 850 C for 10 hours in a hydrogen atmosphere, followed by a cooling rate of 100-200 C/h. Hydrogen is relatively expensive and can cause leaks, so a first annealing with pure Argon was attempted to verify whether the process could be performed by a cheaper and more stable gas. The second annealing was performed as intended by the manufacturer.
+
+Table XXX shows the relevant and testable parameters for the five conditions: as tested by the manufacturer, and the four samples taken by the author.
+
+\begin{table*}[t]
+    \centering
+    \caption{Magnetic performance across samples}
+    % \label{tab:mag_data}
+    \begin{tabular}{llllll}
+    Property/Sample         & Man.    & Wire  & Weld & Ar    & H \\
+    Coercivity [A/m]        & 140     & 531   & 659  & 934   & - \\
+    Remanence [A/m]         & -       & 34.94 & 32.2 & 25.35 & - \\
+    Sat. Mag. [A/m]         & 1.803e6 & 1907  & 1883 & 1832  & - \\
+    Max. Perm. [H/m]        & 3200    & 5240  & 3810 & 3002  & - \\
+    Hysteresis Area [$J/m^3$] & -     & 36.4  & 39.9 & 34.8  & - \\
+    \end{tabular}
+\end{table*}

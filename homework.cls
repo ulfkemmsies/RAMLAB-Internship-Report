@@ -196,8 +196,8 @@
 \newcommand{\@exercisesection}{% copied from article.cls and modified
     \@startsection%
         {exercise}{1}{\z@}%
-        {-3.5ex \@plus -1ex \@minus -.2ex}%
-        {2.3ex \@plus.2ex}%
+        {0.8ex \@plus 0.8ex \@minus 0.2ex}%
+        {0.5ex \@plus.2ex}%
         {\normalfont\Large\bfseries}%
 }
 \newcommand*{\@exercise}[1][\@nil]{% tex.stackexchange.com/a/217763
