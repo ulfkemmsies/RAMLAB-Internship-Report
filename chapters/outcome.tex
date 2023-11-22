@@ -96,7 +96,7 @@ Welding was filmed using the previously mentioned Cavitar camera, and analysing 
 This effect would be pronounced in higher layers due to less of the base plate impeding the shielding gas' flow and keeping it in contact with the melt pool for longer, which might have explained why defects consistently ocurred once a certain wall height was reached.
 
 In order to prolong the contact time of the shielding gas with the weld pool, the travel speed was reduced from 0.3 to 0.25 m/min. The interpass temperature was also increased from 50$\deg$ to 80$\deg$ to reduce cooling times and increase the likelihood of layer remelting. A second ring was printed with these conditions, as shown in \autoref{fig:ring_2}.
-This ring was the first wall to be printed without any significant defects occuring - most likely due to the mitigation of the oxygen effects by the slower travel speed, and the increased heat input allowing for more re-melting of previous layers to fill in any defects. This second point is important, since defects cannot be prevented, but they can be corrected through remelting.
+This ring was the first wall to be printed without any significant defects occurring - most likely due to the mitigation of the oxygen effects by the slower travel speed, and the increased heat input allowing for more re-melting of previous layers to fill in any defects. This second point is important, since defects cannot be prevented, but they can be corrected through remelting.
 
 \begin{minipage}{\linewidth}
     \centering
@@ -104,3 +104,52 @@ This ring was the first wall to be printed without any significant defects occur
     \captionof{figure}{Second ring test with no defects}
     \label{fig:ring_2}
 \end{minipage}
+
+With this relatively stable condition achieved, this ring was used for sample collection for microscopy and magnetic testing. The tests moved on to printing full geometries consisting of two concentric rings on much smaller baseplates, which are commonly used in production scenarios. This introduced a new issue of thermal loading and excessively long cooling times due to the comparatively small thermal reservoir a smaller baseplate offers.
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/photo_2023-11-14_15-40-54.jpg}
+    \captionof{figure}{First full geometry print in progress}
+    \label{fig:half_ring_bending}
+\end{minipage}
+
+As shown in \autoref{fig:half_ring_bending}, the corners of the small baseplate are lifted due to repeated heating, and we begin to see the development of so-called "humps" after a few layers. The first few layers in this print were fully smooth and stable. We considered that the bending of the plate may have introduced wire tip positioning errors and thus induced instabilities, so the MaxQ geometrical scanning system was configured for the next print. This system projects the planned toolpath on the existing geometry and adjusts the vertical distance to the part accordingly to keep a stable Contact Tube to Work Piece (CTWD) distance. All subsequent prints made use of this distance correction through 3D scanning. 
+
+\begin{minipage}{\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/photo_2023-11-14_15-39-49.jpg}
+    \captionof{figure}{Three full geometry attempts}
+    \label{fig:3_rings}
+\end{minipage}
+
+\autoref{fig:3_rings} shows three subsequent tests at printing the full geometry in varying conditions. In the center is the finished piece previously shown in \autoref{fig:half_ring_bending}, which was printed with an interpass temperature of 80 $^o$C, displaying significant defects on its top layer. On the right, the following print can be seen. The shielding gas flow rate, which was previously 22 L/m, was increased to 24 L/m. Because of the baseplate's composition (also Vacoflux 17), wettability issues had been identified elsewhere and mitigated with a heat input increase of 15\%, 10\% and 5\% for the first three layers. This was also done for this print. 3D scanning was used along with clamps on the edges of the baseplate to address bending and thus mitigate positioning issues. The interpass temperature was also set to 120 $^o$C to reduce cooling times, but still with all of these process changes, defects still occurred to a significant degree. The hypothesis arose that this may be due to the melt pool staying hot for too long (due to poor thermal conduction of the thin walls of the part), and being exposed to the atmosphere while still in a liquid state, causing reactions with the oxygen present.
+
+As pictured on the very left, another test was run on a large baseplate. This was done to examine whether the thermal issues were the true cause behind the "hump" defects. The interpass temperature was lowered to 50 $^o$C, and additionally, a leading angle of 10 degrees (i.e. the tip tilted in the direction of travel) was introduced in order to push the melt pool forwards, remelting defective layers, instead of backwards, where the forces might accumulate to further defects. Even with these process parameter changes, the defects continued to occur, although quite often, it was possible to remelt previously defective layers.
+
+It must be said that for all of these "humping" and (as mentioned above) "bubbling" defects, the location of the errors was seemingly random and did not follow any discernible patterns. Previous defects were more often than not successfully corrected by a new layer, which in turn had new defects in a different part of the ring.
+
+% \subsection{Software defects}
+
+% ROS bridge
+% Decryption of the Techman
+% Post-processor minor errors
+% Techman weirdness (not starting, bugging out)
+% TCP errors
+% MaxQ 3D camera calibration issues
+
+\begin{table*}[ht]
+\centering
+\caption{VSM Hysteresis Loop Results}
+\label{tab:mag_data}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\textbf{Property/Sample} & \textbf{Wire} & \textbf{Weld} & \textbf{Ar} & \textbf{H} & \textbf{H \%} \\ \hline
+\textbf{Coercivity [A/m]}         & 530.78   & 659  & 934  & 362  & -31.87 \\ \hline
+\textbf{Remanence [A/m]}          & 34.94    & 32.2 & 25.4 & 18.3 & -47.56 \\ \hline
+\textbf{Sat. Magnetization [A/m]} & 1906.847 & 1883 & 1832 & 1821 & -4.46  \\ \hline
+\textbf{Max. Permeability [H/m]}  & 5240.246 & 3810 & 3002 & 4009 & -23.49 \\ \hline
+\textbf{Hysteresis Area [J/m$^3$]}  & 36.377   & 39.9 & 34.8 & 26.5 & -27.28 \\ \hline
+\end{tabular}
+\end{table*}
+
